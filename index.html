@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Artist OS — Dashboard Prototype</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><i class="fas fa-music"></i> Artist OS</div>
+    <div class="top-actions">
+      <button id="notifyBtn"><i class="fas fa-bell"></i></button>
+      <button id="profileBtn"><i class="fas fa-user"></i> Artist</button>
+    </div>
+  </header>
+
+  <nav class="nav-tabs">
+    <button class="tab active" data-tab="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</button>
+    <button class="tab" data-tab="gigs"><i class="fas fa-calendar-alt"></i> Gigs</button>
+    <button class="tab" data-tab="merch"><i class="fas fa-shopping-cart"></i> Merch</button>
+    <button class="tab" data-tab="finances"><i class="fas fa-dollar-sign"></i> Finances</button>
+  </nav>
+
+  <section id="dashboard" class="tab-content active">
+  <main class="grid">
+    <aside class="left">
+      <div class="profile-card">
+        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=80&h=80&fit=crop&crop=face" alt="avatar" />
+        <h3>Jane Doe</h3>
+        <p>Country singer • 124k followers</p>
+        <div class="quick-actions">
+          <button onclick="openModal('createGigModal')">+ Create Gig</button>
+          <button onclick="openModal('aiPostModal')">AI Post</button>
+          <button onclick="openModal('shipModal')">Ship Merch</button>
+        </div>
+      </div>
+    </aside>
+
+    <section class="main">
+      <div class="card social-summary">
+        <div class="metrics">
+          <div>
+            <h2>124,000</h2>
+            <small>Aggregated Followers</small>
+          </div>
+          <div>
+            <h3>+1.2%</h3>
+            <small>Last 7d</small>
+          </div>
+          <div>
+            <h3>3,200</h3>
+            <small>Unique Engagers</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="card posts">
+        <h4>Latest Posts</h4>
+        <ul>
+          <li>
+            <strong>New single teaser</strong>
+            <span class="sentiment pos">+ Positive</span>
+            <div class="post-actions"><button>Reply</button><button>Reshare</button></div>
+          </li>
+          <li>
+            <strong>Merch drop announced</strong>
+            <span class="sentiment neu">~ Neutral</span>
+            <div class="post-actions"><button>Reply</button><button>Reshare</button></div>
+          </li>
+          <li>
+            <strong>Tour sneak peek</strong>
+            <span class="sentiment neg">- Negative</span>
+            <div class="post-actions"><button>Reply</button><button>Reshare</button></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card streams">
+        <h4>Streams (30d)</h4>
+        <canvas id="streamsChart"></canvas>
+        <div class="top-tracks">
+          <div><img src="https://images.unsplash.com/photo-1458560871784-56d23406c091?w=30&h=30&fit=crop" style="vertical-align:middle;margin-right:8px" /><i class="fab fa-spotify" style="color:#1DB954;margin-right:8px"></i> 1. Cowboy Ain't a Cowboy  4.2M</div>
+          <div><img src="https://images.unsplash.com/photo-1515552726023-7125c8d07fb3?w=30&h=30&fit=crop" style="vertical-align:middle;margin-right:8px" /><i class="fab fa-apple" style="color:#000;margin-right:8px"></i> 2. Sounds Like the Radio  3.5M</div>
+          <div><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=30&h=30&fit=crop" style="vertical-align:middle;margin-right:8px" /><i class="fab fa-youtube" style="color:#FF0000;margin-right:8px"></i> 3. There's the Sun  2.2M</div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="right">
+      <div class="card gigs">
+        <h4>Upcoming Events</h4>
+        <ul>
+          <li id="b1">
+            <div class="event-title">Main Street Bar — Jun 12</div>
+            <div class="event-actions"><button onclick="acceptBooking('b1')">Accept</button><button onclick="rejectBooking('b1')">Reject</button></div>
+          </li>
+          <li id="b2">
+            <div class="event-title">City Hall — Jul 3</div>
+            <div class="event-actions"><button onclick="acceptBooking('b2')">Accept</button><button onclick="rejectBooking('b2')">Reject</button></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card donations">
+        <h4>Stampede — Hats</h4>
+        <div class="hats">Today: <strong>23</strong> · 30d: <strong>412</strong></div>
+        <div class="top-donors">Top donors: Sam, Alex, Priya</div>
+        <button onclick="openModal('thankModal')">Send Thanks (AI)</button>
+      </div>
+
+      <div class="card merch">
+        <h4>Merchandise</h4>
+        <div>Units sold (30d): <strong>340</strong></div>
+        <div>Revenue: <strong>$5,120</strong></div>
+        <div class="merch-actions"><button onclick="openModal('shipModal')">Ship to stop</button><button>View SKUs</button></div>
+      </div>
+
+      <div class="card finances">
+        <h4>Finances</h4>
+        <div>Donations (Hats): <strong>412</strong> ($2,060)</div>
+        <div>Streams Revenue: <strong>$1,250</strong></div>
+        <div>Total Earnings: <strong>$8,430</strong></div>
+      </div>
+
+      <div class="card analytics">
+        <h4>Analytics</h4>
+        <div>Top Track: Cowboy Ain't a Cowboy — 4.2M streams</div>
+        <div>Social Growth: +1.2% followers</div>
+        <div>Engagement Rate: 3.2%</div>
+      </div>
+    </aside>
+  </main>
+  </section>
+
+  <section id="gigs" class="tab-content">
+    <div class="grid">
+      <div class="card">
+        <h4><i class="fas fa-calendar-alt"></i> Upcoming Gigs</h4>
+        <ul>
+          <li>Main Street Bar — Jun 12 <button>Accept</button></li>
+          <li>City Hall — Jul 3 <button>Accept</button></li>
+        </ul>
+      </div>      <div class="card">
+        <h4><i class="fas fa-history"></i> Past Gigs</h4>
+        <ul>
+          <li><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=50&h=30&fit=crop" alt="Blue Note" style="vertical-align:middle;margin-right:8px"> Blue Note  May 15 (Sold Out, 300 attendees)</li>
+          <li><img src="https://images.unsplash.com/photo-1515552726023-7125c8d07fb3?w=50&h=30&fit=crop" alt="Riverside Park" style="vertical-align:middle;margin-right:8px"> Riverside Park  Apr 20 (200 attendees, $1,500 revenue)</li>
+        </ul>
+        <canvas id="pastGigsChart" width="300" height="150"></canvas>
+      </div>    </div>
+  </section>
+
+  <section id="merch" class="tab-content">
+    <div class="grid">
+      <div class="card">
+        <h4><i class="fas fa-shopping-cart"></i> Merchandise</h4>
+        <p>Units sold: 340</p>
+        <p>Revenue: $5,120</p>
+        <canvas id="merchChart" width="300" height="200"></canvas>
+        <button>Ship to Stop</button>
+      </div>
+      <div class="card">
+        <h4><i class="fas fa-trophy"></i> Top Selling Items</h4>
+        <ul>
+          <li><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=40&h=40&fit=crop" alt="T-Shirt" style="vertical-align:middle;margin-right:8px"> T-Shirt: 120 units ($2,400)</li>
+          <li><img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=40&h=40&fit=crop" alt="Hat" style="vertical-align:middle;margin-right:8px"> Hat: 80 units ($1,600)</li>
+          <li><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=40&h=40&fit=crop" alt="CD" style="vertical-align:middle;margin-right:8px"> CD: 50 units ($750)</li>
+        </ul>
+        <canvas id="topSellingChart" width="300" height="150"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <section id="finances" class="tab-content">
+    <div class="grid">
+      <div class="card">
+        <h4><i class="fas fa-dollar-sign"></i> Finances</h4>
+        <p>Donations: $2,060</p>
+        <p>Streams: $1,250</p>
+        <p>Total: $8,430</p>
+        <canvas id="financesChart" width="300" height="200"></canvas>
+      </div>
+      <div class="card">
+        <h4><i class="fas fa-chart-pie"></i> Expense Breakdown</h4>
+        <div>Venue Fees: $1,200</div>
+        <div>Marketing: $800</div>
+        <div>Equipment: $500</div>
+        <div>Total Expenses: $2,500</div>
+        <canvas id="expenseChart" width="300" height="150"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <footer class="insights">
+    <div class="carousel">AI Suggestions: <button onclick="openModal('aiPostModal')">Generate post for upcoming gig</button></div>
+  </footer>
+
+  <!-- Modals -->
+  <div id="modalOverlay" class="modal-overlay hidden" onclick="closeModal()"></div>
+
+  <div id="thankModal" class="modal hidden">
+    <h3>AI Thank-you Draft</h3>
+    <textarea id="thankText">Thanks so much for your support — your hats mean the world! I'll send a special update soon.</textarea>
+    <div class="modal-actions"><button onclick="sendThankYou()">Send</button><button onclick="closeModal()">Cancel</button></div>
+  </div>
+
+  <div id="aiPostModal" class="modal hidden">
+    <h3>AI Post Suggestion</h3>
+    <textarea id="aiPostText">[Click Generate to get suggestion]</textarea>
+    <div class="modal-actions"><button onclick="generateAIPost()">Generate</button><button onclick="approvePost()">Approve & Schedule</button><button onclick="closeModal()">Close</button></div>
+  </div>
+
+  <div id="createGigModal" class="modal hidden">
+    <h3>Create Gig</h3>
+    <input placeholder="Title" id="gigTitle">
+    <input placeholder="Date" id="gigDate" type="date">
+    <div class="modal-actions"><button onclick="createGig()">Create</button><button onclick="closeModal()">Close</button></div>
+  </div>
+
+  <div id="shipModal" class="modal hidden">
+    <h3>Ship Merch to Stop</h3>
+    <select id="tourStops"><option>Jun 12 — Main Street Bar</option><option>Jul 3 — City Hall</option></select>
+    <input placeholder="Address" id="shipAddress">
+    <div class="modal-actions"><button onclick="confirmShip()">Confirm</button><button onclick="closeModal()">Close</button></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+
+  <!-- AI Assistant Widget -->
+  <div id="aiAssistant">
+    <div id="aiChat" class="hidden">
+      <div id="chatHeader">AI Assistant <button id="closeChat">&times;</button></div>
+      <div id="chatMessages">
+        <div class="message ai">Hi! I'm your AI assistant. How can I help with gigs, merch, finances, or social media?</div>
+      </div>
+      <div id="chatInputArea">
+        <input type="text" id="chatInput" placeholder="Ask me anything...">
+        <button id="sendChat">Send</button>
+      </div>
+    </div>
+    <button id="aiButton"><i class="fas fa-robot"></i></button>
+  </div>
+</body>
+</html>
