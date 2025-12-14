@@ -21,6 +21,7 @@
     <button class="tab" data-tab="gigs"><i class="fas fa-calendar-alt"></i> Gigs</button>
     <button class="tab" data-tab="merch"><i class="fas fa-shopping-cart"></i> Merch</button>
     <button class="tab" data-tab="finances"><i class="fas fa-dollar-sign"></i> Finances</button>
+    <button class="tab" data-tab="social"><i class="fas fa-share-alt"></i> Social</button>
   </nav>
 
   <section id="dashboard" class="tab-content active">
@@ -139,14 +140,18 @@
       <div class="card">
         <h4><i class="fas fa-calendar-alt"></i> Upcoming Gigs</h4>
         <ul>
-          <li>Main Street Bar — Jun 12 <button>Accept</button></li>
-          <li>City Hall — Jul 3 <button>Accept</button></li>
+          <li><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=50&h=30&fit=crop" alt="Main Street Bar" style="vertical-align:middle;margin-right:8px"> Main Street Bar — Jun 12 (Capacity: 150, Ticket Price: $25)</li>
+          <li><img src="https://images.unsplash.com/photo-1515552726023-7125c8d07fb3?w=50&h=30&fit=crop" alt="City Hall" style="vertical-align:middle;margin-right:8px"> City Hall — Jul 3 (Capacity: 500, Ticket Price: $40)</li>
+          <li><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=50&h=30&fit=crop" alt="The Venue" style="vertical-align:middle;margin-right:8px"> The Venue — Aug 15 (Capacity: 200, Ticket Price: $30)</li>
+          <li><img src="https://images.unsplash.com/photo-1515552726023-7125c8d07fb3?w=50&h=30&fit=crop" alt="Outdoor Amphitheater" style="vertical-align:middle;margin-right:8px"> Outdoor Amphitheater — Sep 22 (Capacity: 1000, Ticket Price: $50)</li>
         </ul>
       </div>      <div class="card">
         <h4><i class="fas fa-history"></i> Past Gigs</h4>
         <ul>
-          <li><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=50&h=30&fit=crop" alt="Blue Note" style="vertical-align:middle;margin-right:8px"> Blue Note  May 15 (Sold Out, 300 attendees)</li>
-          <li><img src="https://images.unsplash.com/photo-1515552726023-7125c8d07fb3?w=50&h=30&fit=crop" alt="Riverside Park" style="vertical-align:middle;margin-right:8px"> Riverside Park  Apr 20 (200 attendees, $1,500 revenue)</li>
+          <li><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=50&h=30&fit=crop" alt="Blue Note" style="vertical-align:middle;margin-right:8px"> Blue Note — May 15 (Sold Out, 300 attendees, $4,500 revenue)</li>
+          <li><img src="https://images.unsplash.com/photo-1515552726023-7125c8d07fb3?w=50&h=30&fit=crop" alt="Riverside Park" style="vertical-align:middle;margin-right:8px"> Riverside Park — Apr 20 (200 attendees, $1,500 revenue)</li>
+          <li><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=50&h=30&fit=crop" alt="Downtown Club" style="vertical-align:middle;margin-right:8px"> Downtown Club — Mar 10 (150 attendees, $2,250 revenue)</li>
+          <li><img src="https://images.unsplash.com/photo-1515552726023-7125c8d07fb3?w=50&h=30&fit=crop" alt="Festival Grounds" style="vertical-align:middle;margin-right:8px"> Festival Grounds — Feb 5 (800 attendees, $12,000 revenue)</li>
         </ul>
         <canvas id="pastGigsChart" width="300" height="150"></canvas>
       </div>    </div>
@@ -203,6 +208,50 @@
         <div>Equipment: $500</div>
         <div>Total Expenses: $2,500</div>
         <canvas id="expenseChart" width="300" height="150"></canvas>
+      </div>      <div class="card">
+        <h4><i class="fas fa-map-marker-alt"></i> Venue Profiles</h4>
+        <ul>
+          <li><strong>Main Street Bar:</strong> Intimate venue with 150 capacity, ideal for acoustic performances and close fan interactions.</li>
+          <li><strong>City Hall:</strong> Spacious hall with 500 seats, suitable for larger audiences and amplified sound.</li>
+          <li><strong>The Venue:</strong> Modern club with 200 capacity, features stage lighting and sound equipment.</li>
+          <li><strong>Outdoor Amphitheater:</strong> Open-air venue with 1000 capacity, great for festivals and summer events.</li>
+        </ul>
+      </div>    </div>
+  </section>
+
+  <section id="social" class="tab-content">
+    <div class="grid">
+      <div class="card">
+        <h4><i class="fab fa-instagram"></i> Instagram Fan Club</h4>
+        <p>Followers: 124,000</p>
+        <p>Engagement Rate: 5.2%</p>
+        <p>Recent Posts: 12 (Last 30 days)</p>
+        <button>Engage with Fans</button>
+        <button>Schedule Post</button>
+      </div>
+      <div class="card">
+        <h4><i class="fab fa-twitter"></i> Twitter Fan Community</h4>
+        <p>Followers: 89,500</p>
+        <p>Tweets: 450 (Last 30 days)</p>
+        <p>Mentions: 1,200</p>
+        <button>Reply to Mentions</button>
+        <button>Start Thread</button>
+      </div>
+      <div class="card">
+        <h4><i class="fab fa-facebook"></i> Facebook Group</h4>
+        <p>Members: 15,000</p>
+        <p>Posts: 85 (Last 30 days)</p>
+        <p>Interactions: 3,400</p>
+        <button>Post Update</button>
+        <button>Moderate Group</button>
+      </div>
+      <div class="card">
+        <h4><i class="fab fa-tiktok"></i> TikTok Challenges</h4>
+        <p>Followers: 67,000</p>
+        <p>Videos: 25 (Last 30 days)</p>
+        <p>Views: 2.1M</p>
+        <button>Create Challenge</button>
+        <button>Duet with Fans</button>
       </div>
     </div>
   </section>
