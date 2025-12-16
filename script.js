@@ -1,5 +1,16 @@
-function openModal(id){document.getElementById('modalOverlay').classList.remove('hidden');document.getElementById(id).classList.remove('hidden')}
-function closeModal(){document.getElementById('modalOverlay').classList.add('hidden');document.querySelectorAll('.modal').forEach(m=>m.classList.add('hidden'))}
+function openModal(id){
+  const overlay = document.getElementById('modalOverlay');
+  const modal = document.getElementById(id);
+  if (overlay && modal) {
+    overlay.classList.remove('hidden');
+    modal.classList.remove('hidden');
+  }
+}
+function closeModal(){
+  const overlay = document.getElementById('modalOverlay');
+  if (overlay) overlay.classList.add('hidden');
+  document.querySelectorAll('.modal').forEach(m=>m.classList.add('hidden'))
+}
 
 function acceptBooking(id){const el=document.getElementById(id);el.style.opacity=0.6;el.querySelector('.event-actions').innerHTML='<span class="tag accepted">Accepted ✓</span>';alert('Booking accepted: '+id)}
 function rejectBooking(id){const el=document.getElementById(id);el.style.opacity=0.6;el.querySelector('.event-actions').innerHTML='<span class="tag rejected">Rejected</span>';alert('Booking rejected: '+id)}
@@ -180,6 +191,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const sendChat = document.getElementById('sendChat');
   const chatMessages = document.getElementById('chatMessages');
 
+  if (!aiButton || !aiChat || !closeChat || !chatInput || !sendChat || !chatMessages) return;
+
   aiButton.addEventListener('click', () => {
     aiChat.classList.toggle('hidden');
   });
@@ -232,4 +245,143 @@ document.addEventListener('DOMContentLoaded', () => {
       return "I'm here to help with gigs, merch, finances, and social media. Ask me anything related to those!";
     }
   }
+});
+
+// Fan-facing interactions
+document.addEventListener('DOMContentLoaded', () => {
+  const merchOptions = document.querySelectorAll('.merch-option');
+  const merchSelected = document.getElementById('merchSelected');
+  const merchTotal = document.getElementById('merchTotal');
+  const clearMerch = document.getElementById('clearMerch');
+  const lockMerch = document.getElementById('lockMerch');
+
+  function updateMerchSummary() {
+    let count = 0;
+    let total = 0;
+    merchOptions.forEach(option => {
+      if (option.classList.contains('active')) {
+        count += 1;
+        total += Number(option.dataset.price || 0);
+      }
+    });
+    if (merchSelected) merchSelected.textContent = `${count} item${count === 1 ? '' : 's'}`;
+    if (merchTotal) merchTotal.textContent = `$${total}`;
+  }
+
+  merchOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      option.classList.toggle('active');
+      updateMerchSummary();
+    });
+  });
+
+  if (clearMerch) {
+    clearMerch.addEventListener('click', () => {
+      merchOptions.forEach(option => option.classList.remove('active'));
+      updateMerchSummary();
+    });
+  }
+
+  if (lockMerch) {
+    lockMerch.addEventListener('click', () => {
+      updateMerchSummary();
+      alert('Merch selection saved for checkout.');
+    });
+  }
+
+  const donationRange = document.getElementById('donationRange');
+  const donationValue = document.getElementById('donationValue');
+  const donationChips = document.querySelectorAll('.chip[data-amount]');
+  const donateBtn = document.getElementById('donateBtn');
+
+  function setDonation(amount) {
+    if (donationRange) donationRange.value = amount;
+    if (donationValue) donationValue.textContent = `$${amount}`;
+    donationChips.forEach(chip => {
+      chip.classList.toggle('active', chip.dataset.amount === String(amount));
+    });
+  }
+
+  if (donationRange && donationValue) {
+    donationRange.addEventListener('input', () => setDonation(donationRange.value));
+  }
+
+  donationChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const amount = Number(chip.dataset.amount || 0);
+      setDonation(amount);
+    });
+  });
+
+  if (donateBtn) {
+    donateBtn.addEventListener('click', () => {
+      const amount = donationRange ? Number(donationRange.value) : 0;
+      alert(`Thanks for supporting Callie! We received your $${amount} pledge.`);
+    });
+  }
+
+  const bookingForm = document.getElementById('fanBooking');
+  const bookingStatus = document.getElementById('bookingStatus');
+
+  if (bookingForm) {
+    bookingForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const city = document.getElementById('bookingCity')?.value || 'your city';
+      const date = document.getElementById('bookingDate')?.value || 'a future date';
+      const venue = document.getElementById('bookingVenue')?.value || 'your venue';
+      const size = document.getElementById('bookingSize')?.value || 'fans';
+      if (bookingStatus) {
+        bookingStatus.textContent = `Request sent for ${city} at ${venue} on ${date}. Estimated crowd: ${size}.`;
+      }
+      bookingForm.reset();
+    });
+  }
+
+  const fanChatMessages = document.getElementById('fanChatMessages');
+  const fanChatInput = document.getElementById('fanChatInput');
+  const fanChatSend = document.getElementById('fanChatSend');
+
+  function addFanMessage(type, text) {
+    if (!fanChatMessages) return;
+    const bubble = document.createElement('div');
+    bubble.className = `bubble ${type}`;
+    bubble.textContent = text;
+    fanChatMessages.appendChild(bubble);
+    fanChatMessages.scrollTop = fanChatMessages.scrollHeight;
+  }
+
+  function replyToFan(message) {
+    const responses = [
+      "Absolutely! Callie can record that line and send it your way tonight.",
+      "We can add you to the early access list for the next demo drop.",
+      "Noted. We'll check venue availability and circle back." ,
+      "Callie loves that city—let's make it happen!"
+    ];
+    const response = responses[Math.floor(Math.random() * responses.length)];
+    addFanMessage('ai', response);
+  }
+
+  if (fanChatInput && fanChatSend) {
+    fanChatSend.addEventListener('click', (event) => {
+      event.preventDefault();
+      const text = fanChatInput.value.trim();
+      if (!text) return;
+      addFanMessage('user', text);
+      fanChatInput.value = '';
+      setTimeout(() => replyToFan(text), 500);
+    });
+
+    fanChatInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        fanChatSend.click();
+      }
+    });
+  }
+
+  document.querySelectorAll('[data-experience]').forEach(button => {
+    button.addEventListener('click', () => {
+      const experience = button.getAttribute('data-experience');
+      alert(`Reserved: ${experience}. We'll confirm details via email.`);
+    });
+  });
 });
