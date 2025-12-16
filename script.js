@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (donateBtn) {
     donateBtn.addEventListener('click', () => {
       const amount = donationRange ? Number(donationRange.value) : 0;
-      alert(`Thanks for supporting Jane! We received your $${amount} pledge.`);
+      alert(`Thanks for supporting Callie! We received your $${amount} pledge.`);
     });
   }
 
@@ -352,10 +352,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function replyToFan(message) {
     const responses = [
-      "Absolutely! Jane can record that line and send it your way tonight.",
+      "Absolutely! Callie can record that line and send it your way tonight.",
       "We can add you to the early access list for the next demo drop.",
       "Noted. We'll check venue availability and circle back." ,
-      "Jane loves that city—let's make it happen!"
+      "Callie loves that city—let's make it happen!"
     ];
     const response = responses[Math.floor(Math.random() * responses.length)];
     addFanMessage('ai', response);
