@@ -245,23 +245,22 @@ button{cursor:pointer}
   background: linear-gradient(45deg, #764ba2, #667eea);
 }
 /* Fan OS layout */
-body.fan-page { background: radial-gradient(circle at 20% 20%, #ffe4b5, #ffd6e7 35%, #fef3c7 70%, #fdf2f8); color: #2d1b00; }
-.fan-page { color: #2d1b00; }
+body.fan-page { background: linear-gradient(135deg, #0f172a 0%, #1f2937 50%, #0f172a 100%); color: #e5e7eb; }
 .fan-container { max-width: 1200px; margin: 0 auto; padding: 24px; }
-.fan-hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; background: linear-gradient(135deg, rgba(255,183,94,0.3), rgba(255,111,145,0.32)); color:#4a1d00; border: 1px solid rgba(255,183,94,0.6); box-shadow: 0 16px 26px rgba(255,154,80,0.25); }
-.fan-topbar { background: linear-gradient(90deg, #ffecd2, #fcb69f); color:#5a2a07; backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,162,100,0.45); box-shadow: 0 6px 12px rgba(255,162,100,0.35); }
+.fan-hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; background: linear-gradient(135deg, rgba(102,126,234,0.25), rgba(118,75,162,0.3)); color:#fff; }
+.fan-topbar { background: rgba(15,23,42,0.6); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); }
 .fan-hero h1 { margin: 8px 0; font-size: 32px; }
-.fan-hero .sub { color: #5c3510; margin: 0 0 12px; }
+.fan-hero .sub { color: #e2e8f0; margin: 0 0 12px; }
 .hero-actions { display: flex; gap: 10px; margin: 12px 0; }
 .hero-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 10px; }
-.hero-stats div { background: rgba(255,255,255,0.7); padding: 10px; border-radius: 10px; text-align: center; color:#8a460d; box-shadow: 0 10px 18px rgba(255,154,80,0.2); }
-.hero-stats span { display: block; color: #8a460d; font-size: 12px; }
+.hero-stats div { background: rgba(255,255,255,0.1); padding: 10px; border-radius: 10px; text-align: center; }
+.hero-stats span { display: block; color: #cbd5e1; font-size: 12px; }
 .hero-spotlight { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
-.hero-spotlight img { width: 100%; border-radius: 14px; box-shadow: 0 12px 24px rgba(255,140,0,0.3); border: 4px solid rgba(255,183,94,0.6); }
-.hero-spotlight .glow { position:absolute; inset: 8%; border-radius: 16px; background: radial-gradient(circle at 20% 20%, rgba(255,211,182,0.6), rgba(255,255,255,0.2)); filter: blur(30px); z-index:-1; }
+.hero-spotlight img { width: 100%; border-radius: 14px; box-shadow: 0 12px 24px rgba(0,0,0,0.35); }
+.hero-spotlight .glow { position:absolute; inset: 8%; border-radius: 16px; background: radial-gradient(circle at 20% 20%, rgba(255,154,158,0.35), rgba(102,126,234,0.08)); filter: blur(30px); z-index:-1; }
 
 .fan-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-top: 20px; }
-.fan-card { background: rgba(255,255,255,0.9); border: 1px solid rgba(255,188,130,0.5); color: #3f2105; box-shadow: 0 12px 20px rgba(255,154,80,0.15); }
+.fan-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.08); color: #e5e7eb; }
 .section-title { display:flex; justify-content:space-between; align-items:center; gap: 12px; margin-bottom: 10px; }
 .pill { display:inline-flex; align-items:center; gap:6px; background: rgba(255,255,255,0.12); color:#e0e7ff; padding:6px 10px; border-radius:999px; font-size:12px; letter-spacing:0.2px; margin:0; }
 .microtext { color:#cbd5e1; font-size:12px; margin:6px 0 0; }
@@ -270,49 +269,42 @@ body.fan-page { background: radial-gradient(circle at 20% 20%, #ffe4b5, #ffd6e7 
 .ghost { background: transparent; color:#e5e7eb; border:1px solid rgba(255,255,255,0.3); padding:10px 14px; border-radius:8px; }
 .primary.outline { background: transparent; border: 1px solid rgba(255,255,255,0.4); }
 .primary:focus, .ghost:focus { outline: 2px solid #a78bfa; outline-offset:2px; }
-.fan-page .pill { background: linear-gradient(120deg, #ffe0b5, #ffc2e2); color:#5d2d0d; box-shadow: 0 8px 12px rgba(255,154,80,0.25); }
-.fan-page .microtext { color:#7a4312; }
-.fan-page .sub { color:#7a4312; }
-.fan-page .primary { background: linear-gradient(45deg, #ffb347, #ff7e5f); color:#4a1d00; box-shadow:0 10px 18px rgba(255,126,95,0.3); }
-.fan-page .ghost { background: rgba(255,255,255,0.9); color:#5d2d0d; border:1px solid rgba(255,162,100,0.6); box-shadow: 0 6px 12px rgba(255,162,100,0.25); }
-.fan-page .primary.outline { background: transparent; color:#5a2a07; border-color: rgba(255,162,100,0.9); box-shadow: none; }
-.fan-page .primary:focus, .fan-page .ghost:focus { outline: 2px solid #ffb347; outline-offset:2px; }
 .small { padding:8px 12px; font-size:13px; }
 
 .experience-list { display:flex; flex-direction:column; gap:12px; }
-.experience { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px; border-radius:10px; background: rgba(255,245,233,0.9); border:1px solid rgba(255,188,130,0.5); box-shadow: 0 8px 14px rgba(255,154,80,0.15); }
-.experience p { margin:6px 0 0; color:#6b3610; }
+.experience { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px; border-radius:10px; background: rgba(255,255,255,0.05); }
+.experience p { margin:6px 0 0; color:#cbd5e1; }
 
 .merch-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:12px; }
-.merch-option { padding:14px; border-radius:12px; border:1px solid rgba(255,162,100,0.35); background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,236,210,0.9)); cursor:pointer; transition: all 0.25s ease; display:flex; justify-content:space-between; align-items:flex-start; color:#4a1d00; }
-.merch-option:hover { transform: translateY(-2px); box-shadow:0 12px 20px rgba(255,154,80,0.25); }
-.merch-option.active { border-color:#ff7e5f; box-shadow:0 0 0 1px rgba(255,126,95,0.6), 0 10px 20px rgba(255,126,95,0.2); }
-.merch-option .tag { display:inline-block; padding:4px 8px; background: rgba(255,188,130,0.2); border-radius:999px; font-size:11px; color:#5d2d0d; }
-.merch-option h3 { margin:6px 0 4px; color:#5d2d0d; }
-.merch-option p { margin:0; color:#6b3610; font-size:13px; }
-.merch-option .price { font-weight:700; color:#c25f1f; }
+.merch-option { padding:14px; border-radius:12px; border:1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); cursor:pointer; transition: all 0.25s ease; display:flex; justify-content:space-between; align-items:flex-start; }
+.merch-option:hover { transform: translateY(-2px); box-shadow:0 12px 20px rgba(0,0,0,0.25); }
+.merch-option.active { border-color:#a78bfa; box-shadow:0 0 0 1px rgba(167,139,250,0.6), 0 10px 20px rgba(103,117,255,0.25); }
+.merch-option .tag { display:inline-block; padding:4px 8px; background: rgba(255,255,255,0.12); border-radius:999px; font-size:11px; color:#e2e8f0; }
+.merch-option h3 { margin:6px 0 4px; color:#fff; }
+.merch-option p { margin:0; color:#cbd5e1; font-size:13px; }
+.merch-option .price { font-weight:700; color:#c4d5ff; }
 .summary { margin-top:12px; display:flex; align-items:center; gap:12px; justify-content:flex-end; flex-wrap:wrap; }
-.summary div { background: rgba(255,240,220,0.9); padding:8px 12px; border-radius:8px; border:1px solid rgba(255,188,130,0.4); color:#5a2a07; }
+.summary div { background: rgba(255,255,255,0.06); padding:8px 12px; border-radius:8px; }
 
 .donation { display:flex; flex-direction:column; gap:10px; }
-.donation-amount h1 { margin:0; color:#c25f1f; }
-.donation input[type=range] { accent-color:#ff7e5f; }
+.donation-amount h1 { margin:0; color:#fff; }
+.donation input[type=range] { accent-color:#a78bfa; }
 .chip-row { display:flex; gap:8px; flex-wrap:wrap; }
-.chip { background: rgba(255,236,210,0.9); border:1px solid rgba(255,188,130,0.5); color:#5d2d0d; padding:8px 12px; border-radius:999px; cursor:pointer; transition: all 0.2s ease; box-shadow: 0 6px 12px rgba(255,154,80,0.18); }
-.chip:hover, .chip.active { border-color:#ff7e5f; box-shadow:0 0 0 1px rgba(255,126,95,0.6); }
+.chip { background: rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.1); color:#e5e7eb; padding:8px 12px; border-radius:999px; cursor:pointer; transition: all 0.2s ease; }
+.chip:hover, .chip.active { border-color:#a78bfa; box-shadow:0 0 0 1px rgba(167,139,250,0.6); }
 
-.booking label { display:block; color:#5a2a07; font-size:14px; margin-bottom:10px; }
-.booking input { width:100%; padding:10px; border-radius:8px; border:1px solid rgba(255,162,100,0.35); background: rgba(255,255,255,0.9); color:#4a1d00; }
+.booking label { display:block; color:#e5e7eb; font-size:14px; margin-bottom:10px; }
+.booking input { width:100%; padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.06); color:#fff; }
 .booking .two-col { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
 .booking button { margin-top:4px; }
 
 .chat-card { display:flex; flex-direction:column; gap:10px; }
-.chat-window { background: rgba(255,248,237,0.95); border:1px solid rgba(255,188,130,0.4); border-radius:12px; padding:12px; height:220px; overflow-y:auto; display:flex; flex-direction:column; gap:10px; box-shadow: 0 8px 16px rgba(255,154,80,0.15); }
+.chat-window { background: rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:12px; height:220px; overflow-y:auto; display:flex; flex-direction:column; gap:10px; }
 .bubble { max-width:80%; padding:10px 12px; border-radius:12px; font-size:14px; }
-.bubble.ai { background: rgba(255,174,112,0.25); color:#5d2d0d; align-self:flex-start; border:1px solid rgba(255,162,100,0.5); }
-.bubble.user { background: rgba(255,188,130,0.22); color:#4a1d00; align-self:flex-end; border:1px solid rgba(255,162,100,0.5); }
+.bubble.ai { background: rgba(103,126,234,0.22); color:#e0e7ff; align-self:flex-start; }
+.bubble.user { background: rgba(255,255,255,0.12); color:#fff; align-self:flex-end; }
 .chat-input-row { display:flex; gap:8px; }
-.chat-input-row input { flex:1; padding:10px; border-radius:10px; border:1px solid rgba(255,162,100,0.35); background: rgba(255,255,255,0.95); color:#4a1d00; }
+.chat-input-row input { flex:1; padding:10px; border-radius:10px; border:1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color:#fff; }
 .chat-input-row button { padding:10px 12px; }
 
 @media(max-width:900px){
