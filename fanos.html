@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fan OS — Exclusive Access</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="fan-page">
+  <header class="topbar fan-topbar">
+    <div class="brand"><i class="fas fa-star"></i> Fan OS</div>
+    <div class="top-actions">
+      <button class="ghost">Explore drops</button>
+      <button class="primary">Log in</button>
+    </div>
+  </header>
+
+  <main class="fan-container">
+    <section class="fan-hero card">
+      <div class="hero-copy">
+        <p class="pill"><i class="fas fa-bolt"></i> Exclusive moments</p>
+        <h1>Get closer to Jane Doe</h1>
+        <p class="sub">Unlock back-stage stories, private soundchecks, and merch drops curated just for the inner circle.</p>
+        <div class="hero-actions">
+          <button class="primary"><i class="fas fa-ticket-alt"></i> Book a 1:1</button>
+          <button class="ghost"><i class="fas fa-video"></i> Join live room</button>
+        </div>
+        <div class="hero-stats">
+          <div><strong>87</strong><span>VIP seats left</span></div>
+          <div><strong>4.9/5</strong><span>Fan experience rating</span></div>
+          <div><strong>3</strong><span>New drops this week</span></div>
+        </div>
+      </div>
+      <div class="hero-spotlight">
+        <div class="glow"></div>
+        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=480&h=320&fit=crop" alt="Artist performing" />
+        <p class="microtext"><i class="fas fa-headphones-alt"></i> Next acoustic set opens in 02:14:32</p>
+      </div>
+    </section>
+
+    <section class="fan-grid">
+      <div class="card fan-card">
+        <div class="section-title">
+          <div>
+            <p class="pill"><i class="fas fa-crown"></i> Meet & Greet</p>
+            <h2>Exclusive experiences</h2>
+          </div>
+          <button class="ghost small">View calendar</button>
+        </div>
+        <div class="experience-list">
+          <div class="experience">
+            <div>
+              <strong>Soundcheck lounge</strong>
+              <p>Arrive early, watch the setup, and hang backstage with Jane and the band.</p>
+            </div>
+            <button class="primary outline" data-experience="Soundcheck lounge">Reserve</button>
+          </div>
+          <div class="experience">
+            <div>
+              <strong>Private Q&A</strong>
+              <p>Join an intimate 20-minute video chat with live fan questions.</p>
+            </div>
+            <button class="primary outline" data-experience="Private Q&A">Reserve</button>
+          </div>
+          <div class="experience">
+            <div>
+              <strong>Backstage Polaroids</strong>
+              <p>Limited signed prints from tour stops with a personal note.</p>
+            </div>
+            <button class="primary outline" data-experience="Backstage Polaroids">Reserve</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fan-card">
+        <div class="section-title">
+          <div>
+            <p class="pill"><i class="fas fa-gift"></i> Merch drop</p>
+            <h2>Select your haul</h2>
+          </div>
+          <button class="ghost small" id="clearMerch">Reset</button>
+        </div>
+        <div class="merch-grid">
+          <div class="merch-option" data-name="Signed Vinyl" data-price="60">
+            <div class="merch-meta">
+              <span class="tag">Limited</span>
+              <h3>Signed Vinyl</h3>
+              <p>Silver edition with handwritten lyric strip.</p>
+            </div>
+            <div class="price">$60</div>
+          </div>
+          <div class="merch-option" data-name="Tour Hoodie" data-price="75">
+            <div class="merch-meta">
+              <span class="tag">New</span>
+              <h3>Tour Hoodie</h3>
+              <p>Embroidered crest, ultra-soft fleece.</p>
+            </div>
+            <div class="price">$75</div>
+          </div>
+          <div class="merch-option" data-name="Lyric Book" data-price="25">
+            <div class="merch-meta">
+              <span class="tag">Fan Fav</span>
+              <h3>Lyric Book</h3>
+              <p>Stories behind every song + scribbles.</p>
+            </div>
+            <div class="price">$25</div>
+          </div>
+        </div>
+        <div class="summary">
+          <div>
+            <small>Selected</small>
+            <strong id="merchSelected">0 items</strong>
+          </div>
+          <div>
+            <small>Total</small>
+            <strong id="merchTotal">$0</strong>
+          </div>
+          <button class="primary" id="lockMerch"><i class="fas fa-lock"></i> Save selection</button>
+        </div>
+      </div>
+
+      <div class="card fan-card">
+        <div class="section-title">
+          <div>
+            <p class="pill"><i class="fas fa-hand-holding-heart"></i> Support</p>
+            <h2>Donate a little love</h2>
+          </div>
+          <span class="microtext">Funds go directly to Jane's next indie release.</span>
+        </div>
+        <div class="donation">
+          <div class="donation-amount">
+            <h1 id="donationValue">$50</h1>
+            <p>Pick a number or slide to fine-tune.</p>
+          </div>
+          <input type="range" id="donationRange" min="5" max="200" value="50" step="5" />
+          <div class="chip-row">
+            <button class="chip" data-amount="25">$25</button>
+            <button class="chip" data-amount="50">$50</button>
+            <button class="chip" data-amount="100">$100</button>
+            <button class="chip" data-amount="150">$150</button>
+          </div>
+          <button class="primary" id="donateBtn"><i class="fas fa-heart"></i> Send donation</button>
+          <p class="microtext">Top supporters this week: Priya, Marcus, Leah.</p>
+        </div>
+      </div>
+
+      <div class="card fan-card">
+        <div class="section-title">
+          <div>
+            <p class="pill"><i class="fas fa-calendar-alt"></i> Concert request</p>
+            <h2>Book Jane near you</h2>
+          </div>
+          <span class="microtext">Share your city and venue vibe.</span>
+        </div>
+        <form class="booking" id="fanBooking">
+          <div class="two-col">
+            <label>
+              City
+              <input id="bookingCity" type="text" placeholder="Austin, TX" required />
+            </label>
+            <label>
+              Preferred date
+              <input id="bookingDate" type="date" required />
+            </label>
+          </div>
+          <label>
+            Venue or festival
+            <input id="bookingVenue" type="text" placeholder="Main Street Hall" required />
+          </label>
+          <label>
+            Estimated audience size
+            <input id="bookingSize" type="number" min="50" max="5000" value="250" />
+          </label>
+          <button class="primary" type="submit"><i class="fas fa-paper-plane"></i> Submit request</button>
+          <p class="microtext" id="bookingStatus">We reply within 48 hours.</p>
+        </form>
+      </div>
+
+      <div class="card fan-card chat-card">
+        <div class="section-title">
+          <div>
+            <p class="pill"><i class="fas fa-comments"></i> 1:1 Chat</p>
+            <h2>Talk with Jane's team</h2>
+          </div>
+          <span class="microtext">Real humans + AI assist.</span>
+        </div>
+        <div class="chat-window" id="fanChatMessages">
+          <div class="bubble ai">Hey! Want a personal shoutout or have questions about the next show?</div>
+          <div class="bubble user">Can I get a lyric snippet for the new song?</div>
+        </div>
+        <div class="chat-input-row">
+          <input id="fanChatInput" type="text" placeholder="Type a message..." />
+          <button class="primary" id="fanChatSend"><i class="fas fa-paper-plane"></i></button>
+        </div>
+        <p class="microtext">Average reply time: under 2 minutes.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
