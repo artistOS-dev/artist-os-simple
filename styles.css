@@ -46,6 +46,13 @@ button:active{transform:translateY(0);box-shadow:0 8px 16px rgba(0,0,0,0.28)}
 .tab-content { display: none; padding: 16px; min-height: calc(100vh - 120px); background: linear-gradient(180deg, rgba(244,114,182,0.08), rgba(34,211,238,0.04) 45%, rgba(12,18,32,0.6)); }
 .tab-content.active { display: block; }
 
+.vibe-gallery .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:8px}
+.vibe-gallery figure{margin:0;padding:8px;background:rgba(19,26,45,0.9);border-radius:12px;border:1px solid rgba(242,159,91,0.18);box-shadow:0 10px 20px rgba(0,0,0,0.26)}
+.vibe-gallery img{width:100%;height:140px;object-fit:cover;border-radius:10px;display:block;filter:saturate(1.02)}
+.vibe-gallery figcaption{margin-top:6px;font-size:13px;color:#d2ddf3}
+.gallery-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.expense-chart{max-width:220px;width:100%;margin:10px auto 0;display:block}
+
 #dashboard { background: transparent; }
 #gigs { background: transparent; }
 #merch { background: transparent; }
@@ -329,6 +336,11 @@ button:active{transform:translateY(0);box-shadow:0 8px 16px rgba(0,0,0,0.28)}
 .merch-option .price { font-weight:700; color:#fbbf24; }
 .summary { margin-top:12px; display:flex; align-items:center; gap:12px; justify-content:flex-end; flex-wrap:wrap; }
 .summary div { background: rgba(17,26,45,0.95); padding:8px 12px; border-radius:10px; border:1px solid rgba(244,114,182,0.2); color:#fdf4ff; }
+
+.mosaic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:8px}
+.mosaic-grid figure{margin:0;padding:8px;background:rgba(17,26,45,0.92);border-radius:12px;border:1px solid rgba(34,197,235,0.2);box-shadow:0 12px 22px rgba(0,0,0,0.28)}
+.mosaic-grid img{width:100%;height:150px;object-fit:cover;border-radius:10px;display:block;filter:saturate(1.05)}
+.mosaic-grid figcaption{margin-top:6px;font-size:13px;color:#d3e1ff}
 
 .donation { display:flex; flex-direction:column; gap:10px; }
 .donation-amount h1 { margin:0; color:#fdf4ff; }
