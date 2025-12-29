@@ -333,6 +333,8 @@ body.fan-page { background: radial-gradient(circle at 18% 18%, rgba(244,114,182,
 .merch-option .price { font-weight:700; color:#fbbf24; }
 .summary { margin-top:12px; display:flex; align-items:center; gap:12px; justify-content:flex-end; flex-wrap:wrap; }
 .summary div { background: rgba(17,26,45,0.95); padding:8px 12px; border-radius:10px; border:1px solid rgba(244,114,182,0.2); color:#fdf4ff; }
+.thumb-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+.thumb-row img { width:56px; height:56px; border-radius:12px; object-fit:cover; border:1px solid rgba(244,114,182,0.2); box-shadow:0 8px 16px rgba(0,0,0,0.28); }
 
 .mosaic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:8px}
 .mosaic-grid figure{margin:0;padding:8px;background:rgba(17,26,45,0.92);border-radius:12px;border:1px solid rgba(34,197,235,0.2);box-shadow:0 12px 22px rgba(0,0,0,0.28)}
